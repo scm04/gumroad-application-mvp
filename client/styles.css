@@ -1,0 +1,80 @@
+body {
+	text-align: center;
+}
+
+button {
+	border: 1.5px solid #cccccc;
+	border-radius: 0.25rem;
+	background-color: #fefefe;
+}
+
+#ratingModal {
+	text-align: start;
+	display: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border: 1px solid black;
+	padding: 1rem;
+	border-radius: 0.25rem;
+	background-color: white;
+}
+
+#ratingModal.open {
+	display: block;
+}
+
+#modalOverlay {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(3, 3, 3, 0.75);
+}
+
+#modalOverlay.open {
+	display: block;
+}
+
+#averageRatingValue {
+	font-size: 1.5rem;
+}
+
+#averageRatingStars {
+	margin: 0.5rem;
+}
+
+#addReviewBtn {
+	float: right;
+}
+
+#ratingsPage {
+	text-align: start;
+	display: inline-block;
+}
+
+#divider {
+	height: 1px;
+	border-width: 0;
+	color: #b9b9b9;
+	background-color: #b9b9b9;
+	margin-top: 2rem;
+}
+
+.star {
+	color: #e0e0e0;
+	text-shadow: 0px 0.5px #cacaca;
+	margin: 0.1rem;
+}
+
+.checked {
+	color: #fece6d;
+	text-shadow: 0px 1px #e5b965;
+}
+
+.review-stars {
+	margin-right: 0.5rem;
+}

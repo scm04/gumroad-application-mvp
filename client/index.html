@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ratings Challenge</title>
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- JavaScript Dependencies -->
+	<script src="script.js" defer></script>
+</head>
+<body>
+	<div id="modalOverlay"></div>
+	<form id="ratingModal">
+		<h1>What's your rating?</h1>
+		<div id="rating">
+			<p>Rating</p>
+			<div id="stars">
+				<span id="star-1" class="fa fa-star fa-lg star" onclick="updateModalRating(1)"></span>
+				<span id="star-2" class="fa fa-star fa-lg star" onclick="updateModalRating(2)"></span>
+				<span id="star-3" class="fa fa-star fa-lg star" onclick="updateModalRating(3)"></span>
+				<span id="star-4" class="fa fa-star fa-lg star" onclick="updateModalRating(4)"></span>
+				<span id="star-5" class="fa fa-star fa-lg star" onclick="updateModalRating(5)"></span>
+			</div>
+		</div>
+
+		<div id="review">
+			<p>Review</p>
+			<textarea id="reviewText"></textarea>
+		</div>
+
+		<button type="submit">Submit review</button>
+	</form>
+
+	<div id="ratingsPage">
+		<h1>The Minimalist Entrepreneur</h1>
+		<div id="averageRating">
+			<span id="averageRatingValue"></span>
+			<span id="averageRatingStars"></span>
+			<button id="addReviewBtn">Add review</button>
+		</div>
+		<hr id="divider">
+		<h3>Reviews</h3>
+		<div id="reviewsList">
+		</div>
+	</div>
+</body>
+</html>
