@@ -1,8 +1,8 @@
 // Server URL and helper function to make sending a request easier throughout the rest of the application.
-const SERVER = "http://localhost:3000/mvp"
+const SERVER = "http://localhost:3000"
 
-async function sendRequest(endpoint = null, method = "GET", body = null) {
-	const URL = `${SERVER}/${endpoint === null ? "" : endpoint}`
+async function sendRequest(endpoint = "mvp/reviews", method = "GET", body = null) {
+	const URL = `${SERVER}/${endpoint}`
 
 	let options = {
 		method,
@@ -18,8 +18,14 @@ async function sendRequest(endpoint = null, method = "GET", body = null) {
 }
 
 // Once the page is loaded, send a request to the server to retrieve the existing reviews and add everything to the page in its proper location.
+let productId = null
 addEventListener("load", async () => {
-	const data = await sendRequest()
+	const products = await sendRequest("products")
+	productId = products.filter(
+		product => product.name === "The Minimalist Entrepreneur"
+	)[0].id
+
+	const data = await sendRequest(`mvp/reviews/${productId}`)
 
 	setAverageRating(data.averageRating)
 
@@ -116,8 +122,8 @@ ratingModal.addEventListener("submit", e => {
 // Submit a rating to the server
 async function submitRating(rating, review) {
 	// Use fetch API to send rating and review to the server with a POST request.
-	let body = { rating, review }
-	const response = await sendRequest("addReview", "POST", body)
+	let body = { productId, rating, review }
+	const response = await sendRequest("mvp/reviews/add", "POST", body)
 
 	setAverageRating(response.averageRating)
 	updateReviewList(response.reviews)
